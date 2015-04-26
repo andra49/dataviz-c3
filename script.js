@@ -83,7 +83,7 @@ datavizApp.controller('mainController', function($scope, $http) {
     		.success(function(response) {
     			$scope.dataset = response;
     			$scope.initChart();
-    		});
+    		})
     		.error(function(response) {
     			console.log("Metadata file not found");
     		});
