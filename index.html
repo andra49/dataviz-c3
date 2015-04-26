@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="datavizApp">
 <head>
 	<!-- Load c3.css -->
 	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -13,7 +13,7 @@
 	<script src="lib/c3.min.js"></script>
 	<title>C3.js Demo</title>
 </head>
-<body>
+<body ng-controller="mainController" ng-init="initChart()">
 <div class="col-md-12">
 	<div class="row">
 		<div class="col-md-12">
@@ -24,18 +24,21 @@
 	</div>
 	<div class="col-md-2">
 		<h3>Select Country</h3>
-		<div class="list-group">
-		  <a href="#" class="list-group-item active">
-		    <span class="flag-icon flag-icon-us"></span>&nbsp;United States
+		<div class="list-group" ng-repeat="data in dataset">
+		  <a href="#" class="list-group-item" ng-click="loadChart($index)" ng-class="data.class">
+		    <span class="flag-icon" ng-class="'flag-icon-'+data.shortcode"></span>&nbsp;{{data.name}}
 		  </a>
-		  <a href="#" class="list-group-item"><span class="flag-icon flag-icon-de"></span>&nbsp;Germany</a>
-		  <a href="#" class="list-group-item"><span class="flag-icon flag-icon-jp"></span>&nbsp;Japan</a>
 		</div>
 	</div>
-	<div class="col-md-8">
+	<div class="col-md-7">
 		<div id="chart"></div>
+	</div>
+	<div class="col-md-3 narrative-text">
+		<h3>{{dataset[selected].name}}</h3>
+		{{dataset[selected].text}}
 	</div>
 </div>
 </body>
-	<script src="chart.js"></script>
+	<script src="lib/angular.min.js" charset="utf-8"></script>
+	<script src="script.js"></script>
 </html>

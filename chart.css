@@ -6,10 +6,15 @@
 }
 .c3-xgrid-line.timeline text{
   fill: black;
+  font-size: 12px;
 }
 .c3-xgrid-line.timeline line{
   stroke: black;
   stroke-width: 1px;
+}
+.narrative-text {
+  text-align: justify;
+  text-justify: inter-word;
 }
 #chart .c3-line-GDP-Growth {
   stroke-width: 3px;
@@ -17,17 +22,16 @@
 #chart .c3-line-Inflation {
   stroke-width: 3px;
 }
-#chart .c3-line-Interest-Rate {
-  stroke-width: 3px;
-}
 #chart .c3-line-Unemployment {
   stroke-width: 3px;
 }
 #chart .c3-line-PeopleOpinion {
   stroke-width: 3px;
+  stroke-dasharray: 5,5;
 }
 #chart .c3-line-FutureOpinion {
   stroke-width: 3px;
+  stroke-dasharray: 5,5;
 }
 body {
 	font-family: 'Montserrat', sans-serif;
