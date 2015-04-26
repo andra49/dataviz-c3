@@ -17,17 +17,16 @@
 #chart .c3-line-Inflation {
   stroke-width: 3px;
 }
-#chart .c3-line-Interest-Rate {
-  stroke-width: 3px;
-}
 #chart .c3-line-Unemployment {
   stroke-width: 3px;
 }
 #chart .c3-line-PeopleOpinion {
   stroke-width: 3px;
+  stroke-dasharray: 5,5;
 }
 #chart .c3-line-FutureOpinion {
   stroke-width: 3px;
+  stroke-dasharray: 5,5;
 }
 body {
 	font-family: 'Montserrat', sans-serif;
