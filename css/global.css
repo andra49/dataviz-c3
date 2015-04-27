@@ -90,3 +90,7 @@ a:hover.tooltips span1 {
   background-color: #333;
   border-color: white;
 }
+.footer-text {
+  color: #F0F0F0;
+  text-align: center;
+}

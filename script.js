@@ -12,8 +12,8 @@ datavizApp.controller('mainController', function($scope, $http) {
 		'Annual percentage growth <br>rate of GDP at market prices based on <br>constant local currency.', 
 		'Annual percentage change in <br>the cost to the average consumer of <br>acquiring a basket of goods and services.', 
 		'Labor force that is without <br>work but available for and seeking <br>employment.', 
-		'People opinion on current <br>economic situation. (Using right Y-Axis)', 
-		'People expectation on economic <br>situation over next 12 months. <br>(Using right Y-Axis)'
+		'Percentage of positive opinion on <br>current economic situation. <br>(Using right Y-Axis)', 
+		'Percentage of positive expectation on<br> economic situation over next 12 months. <br>(Using right Y-Axis)'
 	];
 
     // create a message to display in our view
