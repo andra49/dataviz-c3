@@ -60,6 +60,7 @@ datavizApp.controller('mainController', function($scope, $http) {
 		        }
 		    },
 		    regions: [
+        		{start: '2008-01-01', end: '2009-06-01'},
 		        {axis: 'y', start: -100, end: 0, class: 'negative-percentage'},
 		        {axis: 'y', start: 0, class: 'positive-percentage'}
 		    ],
@@ -70,7 +71,6 @@ datavizApp.controller('mainController', function($scope, $http) {
 		            value: function(d) { return d + "%"; }
 		        },
 				contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-					console.log(d);
 				  	var $$ = this, config = $$.config,
 				        titleFormat = config.tooltip_format_title || defaultTitleFormat,
 				        nameFormat = config.tooltip_format_name || function (name) { return name; },

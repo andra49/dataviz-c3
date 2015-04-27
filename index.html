@@ -25,19 +25,19 @@
 		</div>
 	</div>
 	<div class="col-md-3 narrative-text">
-		Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.
+		The Great Recession was the general economic decline observed in world markets around the end of the first decade of the 21st century. The International Monetary Fund concluded that it was the worst global recession since World War II. The Great Recession applies to both the United States recession and the ensuing global recession. The economic incident began when the United States housing market went from boom to bust and large amounts of mortgage-backed securities and derivatives lost significant value. It was related as the cause of the United States financial crisis of 2007-2008 and subprime mortgage crisis of 2007-2009.
 	</div>
 	<div class="col-md-9">
 		<div class="row">
 			<div class="col-md-offset-1 col-md-1 h5">By country</div>
 			<div class="col-md-4 list-group-horizontal">
-			  <a href="#" class="list-group-item tooltips" ng-click="loadChart($index)" ng-class="data.class" ng-repeat="data in dataset" style="background-color:grey; color:white">
+			  <a href="#" class="list-group-item tooltips buttons" ng-click="loadChart($index)" ng-class="data.class" ng-repeat="data in dataset">
 			    <span class="flag-icon" ng-class="'flag-icon-'+data.shortcode"></span><span1>{{data.name}}</span1>
 			  </a>
 			</div>
 			<div class="col-md-offset-1 col-md-1 h5">By criterion</div>
 			<div class="col-md-4 list-group-horizontal">
-			  <a href="#" class="list-group-item tooltips" ng-click="loadParameter($index)" ng-class="parameter.class" ng-repeat="parameter in parameterColumn" style="background-color:grey; color:white">
+			  <a href="#" class="list-group-item tooltips buttons" ng-click="loadParameter($index)" ng-class="parameter.class" ng-repeat="parameter in parameterColumn">
 			    <img src="icon/{{parameter.name}}.png" style="margin:-8px -4px;width:24px;height:24px"><span1>{{parameter.name}}</span1>
 			  </a>
 			</div>
