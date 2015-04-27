@@ -5,11 +5,11 @@
   fill: blue;
 }
 .c3-xgrid-line.timeline text{
-  fill: black;
+  fill: white;
   font-size: 12px;
 }
 .c3-xgrid-line.timeline line{
-  stroke: black;
+  stroke: white;
   stroke-width: 1px;
 }
 .narrative-text {
@@ -44,6 +44,7 @@
 }
 body {
 	font-family: 'Montserrat', sans-serif;
+  fill: white;
 }
 .legend-scale ul {
     margin: 0;
