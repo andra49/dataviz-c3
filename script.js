@@ -8,6 +8,13 @@ datavizApp.controller('mainController', function($scope, $http) {
 	$scope.parameterColumn = [];
 	$scope.selected = 0;
 	$scope.dataHeader = 0;
+	$scope.legends = [
+		'Annual percentage growth <br>rate of GDP at market prices based on <br>constant local currency.', 
+		'Annual percentage change in <br>the cost to the average consumer of <br>acquiring a basket of goods and services.', 
+		'Labor force that is without <br>work but available for and seeking <br>employment.', 
+		'People opinion on current <br>economic situation. (Using right Y-Axis)', 
+		'People expectation on economic <br>situation over next 12 months. <br>(Using right Y-Axis)'
+	];
 
     // create a message to display in our view
     $scope.initChart = function() {
@@ -61,7 +68,40 @@ datavizApp.controller('mainController', function($scope, $http) {
 		        format: {
 		            title: d3.time.format('%Y'),
 		            value: function(d) { return d + "%"; }
-		        }
+		        },
+				contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
+					console.log(d);
+				  	var $$ = this, config = $$.config,
+				        titleFormat = config.tooltip_format_title || defaultTitleFormat,
+				        nameFormat = config.tooltip_format_name || function (name) { return name; },
+				        valueFormat = config.tooltip_format_value || defaultValueFormat,
+				        text, i, title, value, name, bgcolor;
+				  	for (i = 0; i < d.length; i++) {
+				        if (! (d[i] && (d[i].value || d[i].value === 0))) { continue; }
+
+				        if (! text) {
+				            title = titleFormat ? titleFormat(d[i].x) : d[i].x;
+				            text = "<table class='" + $$.CLASS.tooltip + "'>" + (title || title === 0 ? "<tr><th colspan='2'>" + title + "</th></tr>" : "");
+				        }
+
+						name = nameFormat(d[i].name);
+						value = valueFormat(d[i].value, d[i].ratio, d[i].id, d[i].index);
+						bgcolor = $$.levelColor ? $$.levelColor(d[i].value) : color(d[i].id);
+
+						text += "<tr class='" + $$.CLASS.tooltipName + "-" + d[i].id + "'>";
+						text += "<td class='name'><span style='background-color:" + bgcolor + "'></span>" + name + "</td>";
+						text += "<td class='value'>" + value + "</td>";
+						text += "</tr>";
+						text += "<tr class='" + $$.CLASS.tooltipName + "-" + d[i].id + "'>";
+						if (d[i].name == "GDP Growth") text += "<td class='name'>" + $scope.legends[0] + "</td>";
+						else if (d[i].name == "Inflation") text += "<td class='name'>" + $scope.legends[1] + "</td>";
+						else if (d[i].name == "Unemployment") text += "<td class='name'>" + $scope.legends[2] + "</td>";
+						else if (d[i].name == "PeopleOpinion") text += "<td class='name'>" + $scope.legends[3] + "</td>";
+						else if (d[i].name == "FutureOpinion") text += "<td class='name'>" + $scope.legends[4] + "</td>";
+						text += "</tr>";
+				    }
+				  return text + "</table>";
+				}
 		    }
 		});
 	}

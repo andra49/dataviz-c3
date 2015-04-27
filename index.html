@@ -6,8 +6,9 @@
 	<link href="css/c3.css" rel="stylesheet" type="text/css">
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<link href="css/flag-icon.min.css" rel="stylesheet" type="text/css">
+	<link href="css/global.css" rel="stylesheet" type="text/css">
 	<link href="css/listgroup.horizontal.css" rel="stylesheet" type="text/css">
-	<link href="chart.css" rel="stylesheet" type="text/css">
+	<link href="css/chart.css" rel="stylesheet" type="text/css">
 
 	<!-- Load d3.js and c3.js -->
 	<script src="lib/d3.min.js" charset="utf-8"></script>
@@ -19,96 +20,36 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1>The 2008 Great Recession <small>and its impact on our live</small></h1>
+				<h1>The 2008 Great Recession <small>and its after-impact</small></h1>
 			</div>
-		</div>
-	</div>
-	<div class="col-md-offset-3 col-md-9">
-		<div class="col-md-2 h4">By Country</div>
-		<div class="col-md-10 list-group-horizontal">
-		  <a href="#" class="list-group-item" ng-click="loadChart($index)" ng-class="data.class" ng-repeat="data in dataset">
-		    <span class="flag-icon" ng-class="'flag-icon-'+data.shortcode"></span>&nbsp;{{data.name}}
-		  </a>
-		</div>
-	</div>
-	<hr>
-	<div class="col-md-offset-3 col-md-9">
-		<div class="col-md-2 h4">By Criterion</div>
-		<div class="col-md-10 list-group-horizontal">
-		  <a href="#" class="list-group-item" ng-click="loadParameter($index)" ng-class="parameter.class" ng-repeat="parameter in parameterColumn">
-		    {{parameter.name}}
-		  </a>
 		</div>
 	</div>
 	<div class="col-md-3 narrative-text">
-		<h3>{{dataset[selected].name}}</h3>
-		{{dataset[selected].text}}
+		Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum.
 	</div>
 	<div class="col-md-9">
-		<div id="chart"></div>
-		<h4>Explanation on legend</h4>
-		<h5>
-			<div class="legend-scale">
-				<ul class='legend-labels'>
-					<div class="row">
-						<li>
-							<div class="col-md-1 legend-padding">
-								<span style='background:rgb(31, 119, 180);'></span>
-							</div>
-							<div class="col-md-11">
-								<strong>GDP Growth</strong> 
-									<h6>Annual percentage growth rate of GDP at market prices based on constant local currency.</h6>
-							</div>
-						</li>
-					</div>
-					<div class="row">
-						<li>
-							<div class="col-md-1 legend-padding">
-								<span style='background:rgb(255, 127, 14);'></span>
-							</div>
-						<div class="col-md-11">
-								<strong>Inflation</strong> 
-									<h6>Annual percentage change in the cost to the average consumer of acquiring a basket of goods and services.</h6>
-							</div>
-						</li>
-					</div>
-					<div class="row">
-						<li>
-							<div class="col-md-1 legend-padding">
-								<span style='background:rgb(44, 160, 44);'></span>
-							</div>
-						<div class="col-md-11">
-								<strong>Unemployment</strong> 
-									<h6>Labor force that is without work but available for and seeking employment.</h6>
-							</div>
-						</li>
-					</div>
-					<div class="row">
-						<li>
-							<div class="col-md-1 legend-padding">
-								<span style='background:rgb(214, 39, 40);'></span>
-							</div>
-						<div class="col-md-11">
-								<strong>People Opinion</strong> 
-									<h6>People opinion on current economic situation. (Using right Y-Axis)</h6> 	
-							</div>
-						</li>
-					</div>
-					<div class="row">
-						<li>
-							<div class="col-md-1 legend-padding">
-								<span style='background:rgb(148, 103, 189);'></span>
-							</div>
-							<div class="col-md-11">
-								<strong>Future Opinion</strong> 
-									<h6>People expectation on economic situation over next 12 months. (Using right Y-Axis)</h6>
-							</div>
-						</li>
-					</div>
-				</ul>
+		<div class="row">
+			<div class="col-md-offset-1 col-md-1 h5">By country</div>
+			<div class="col-md-4 list-group-horizontal">
+			  <a href="#" class="list-group-item tooltips" ng-click="loadChart($index)" ng-class="data.class" ng-repeat="data in dataset" style="background-color:grey; color:white">
+			    <span class="flag-icon" ng-class="'flag-icon-'+data.shortcode"></span><span1>{{data.name}}</span1>
+			  </a>
 			</div>
-		</h5>
+			<div class="col-md-offset-1 col-md-1 h5">By criterion</div>
+			<div class="col-md-4 list-group-horizontal">
+			  <a href="#" class="list-group-item tooltips" ng-click="loadParameter($index)" ng-class="parameter.class" ng-repeat="parameter in parameterColumn" style="background-color:grey; color:white">
+			    <img src="icon/{{parameter.name}}.png" style="margin:-8px -4px;width:24px;height:24px"><span1>{{parameter.name}}</span1>
+			  </a>
+			</div>
+			<hr>
+		</div>
+		<div class="row">
+			<div id="chart"></div>
+		</div>
 	</div>
+</div>
+<div class="col-md-offset-2 col-md-8 dataviz-c3 page-footer">
+	By: Evan Budianto, Muhammad Nassirudin, Renusa Andra Prayogo, dan Arini Hasianna Sirait.
 </div>
 </body>
 	<script src="lib/angular.min.js" charset="utf-8"></script>
