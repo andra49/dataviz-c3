@@ -72,7 +72,6 @@ datavizApp.controller('mainController', function($scope, $http) {
 		for (var i = 0; i < $scope.parameterColumn[0].column.length; i++) {
 			remove.push($scope.parameterColumn[0].column[i][0]);
 		};
-		console.log(remove);
 
 		$scope.chart.load({
 			url: $scope.dataset[id].filename,
@@ -86,7 +85,7 @@ datavizApp.controller('mainController', function($scope, $http) {
 	$scope.loadParameter = function(id) {
 		$scope.chart.load({
 			columns: $scope.parameterColumn[id].column,
-			unload: ['GDP Growth', 'Unemployment', 'Inflation', 'PeopleOpinion', 'FutureOpinion']
+			unload: ['x','GDP Growth', 'Unemployment', 'Inflation', 'PeopleOpinion', 'FutureOpinion']
 		});
 		$scope.chart.xgrids([]);
 		enableSelection(id, false);
