@@ -29,6 +29,13 @@
 		    <span class="flag-icon" ng-class="'flag-icon-'+data.shortcode"></span>&nbsp;{{data.name}}
 		  </a>
 		</div>
+		<hr>
+		<h3>Select Parameter</h3>
+		<div class="list-group">
+		  <a href="#" class="list-group-item" ng-click="loadParameter($index)" ng-class="parameter.class" ng-repeat="parameter in parameterColumn">
+		    {{parameter.name}}
+		  </a>
+		</div>
 	</div>
 	<div class="col-md-7">
 		<div id="chart"></div>

@@ -33,6 +33,15 @@
   stroke-width: 3px;
   stroke-dasharray: 5,5;
 }
+#chart .c3-line-United-States {
+  stroke-width: 3px;
+}
+#chart .c3-line-Germany {
+  stroke-width: 3px;
+}
+#chart .c3-line-Japan {
+  stroke-width: 3px;
+}
 body {
 	font-family: 'Montserrat', sans-serif;
 }
