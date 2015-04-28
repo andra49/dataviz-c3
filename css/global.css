@@ -80,4 +80,17 @@ a:hover.tooltips span1 {
   left: 50%;
   margin-left: -76px;
   z-index: 999;
+  border-color: #333;
+}
+.buttons {
+   background-color:grey;
+   color:white;
+}
+.buttons.active {
+  background-color: #333;
+  border-color: white;
+}
+.footer-text {
+  color: #F0F0F0;
+  text-align: center;
 }

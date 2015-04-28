@@ -12,8 +12,8 @@ datavizApp.controller('mainController', function($scope, $http) {
 		'Annual percentage growth <br>rate of GDP at market prices based on <br>constant local currency.', 
 		'Annual percentage change in <br>the cost to the average consumer of <br>acquiring a basket of goods and services.', 
 		'Labor force that is without <br>work but available for and seeking <br>employment.', 
-		'People opinion on current <br>economic situation. (Using right Y-Axis)', 
-		'People expectation on economic <br>situation over next 12 months. <br>(Using right Y-Axis)'
+		'Percentage of positive opinion on <br>current economic situation. <br>(Using right Y-Axis)', 
+		'Percentage of positive expectation on<br> economic situation over next 12 months. <br>(Using right Y-Axis)'
 	];
 
     // create a message to display in our view
@@ -60,6 +60,7 @@ datavizApp.controller('mainController', function($scope, $http) {
 		        }
 		    },
 		    regions: [
+        		{start: '2008-01-01', end: '2009-06-01'},
 		        {axis: 'y', start: -100, end: 0, class: 'negative-percentage'},
 		        {axis: 'y', start: 0, class: 'positive-percentage'}
 		    ],
@@ -70,7 +71,6 @@ datavizApp.controller('mainController', function($scope, $http) {
 		            value: function(d) { return d + "%"; }
 		        },
 				contents: function (d, defaultTitleFormat, defaultValueFormat, color) {
-					console.log(d);
 				  	var $$ = this, config = $$.config,
 				        titleFormat = config.tooltip_format_title || defaultTitleFormat,
 				        nameFormat = config.tooltip_format_name || function (name) { return name; },
@@ -112,7 +112,6 @@ datavizApp.controller('mainController', function($scope, $http) {
 		for (var i = 0; i < $scope.parameterColumn[0].column.length; i++) {
 			remove.push($scope.parameterColumn[0].column[i][0]);
 		};
-		console.log(remove);
 
 		$scope.chart.load({
 			url: $scope.dataset[id].filename,
@@ -126,7 +125,7 @@ datavizApp.controller('mainController', function($scope, $http) {
 	$scope.loadParameter = function(id) {
 		$scope.chart.load({
 			columns: $scope.parameterColumn[id].column,
-			unload: ['GDP Growth', 'Unemployment', 'Inflation', 'PeopleOpinion', 'FutureOpinion']
+			unload: ['x','GDP Growth', 'Unemployment', 'Inflation', 'PeopleOpinion', 'FutureOpinion']
 		});
 		$scope.chart.xgrids([]);
 		enableSelection(id, false);
