@@ -5,6 +5,7 @@
 	<link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 	<link href="css/c3.css" rel="stylesheet" type="text/css">
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
 	<link href="css/flag-icon.min.css" rel="stylesheet" type="text/css">
 	<link href="css/global.css" rel="stylesheet" type="text/css">
 	<link href="css/listgroup.horizontal.css" rel="stylesheet" type="text/css">
@@ -39,7 +40,7 @@
 			<div class="col-md-1 h5">By criterion</div>
 			<div class="col-md-5 list-group-horizontal">
 			  <a href="#" class="list-group-item tooltips buttons" ng-click="loadParameter($index)" ng-class="parameter.class" ng-repeat="parameter in parameterColumn">
-			    <img src="icon/{{parameter.name}}.png" style="margin:-8px -4px;width:24px;height:24px"><span1>{{parameter.name}}</span1>
+			    <img ng-src="icon/{{parameter.name}}.png" style="margin:-8px -4px;width:24px;height:24px"><span1>{{parameter.name}}</span1>
 			  </a>
 			</div>
 			<hr>
@@ -49,8 +50,18 @@
 		</div>
 	</div>
 </div>
-<div class="col-md-offset-2 col-md-8 dataviz-c3 page-footer">
+<div ng-controller="firebaseController" class="col-md-offset-2 col-md-8 dataviz-c3 page-footer">
 	<h6>By: Evan Budianto, Muhammad Nassirudin, Renusa Andra Prayogo, dan Arini Hasianna Sirait.</h6>
+	
+	<div ng-hide="sent">
+		<h4>Rating</h4>
+		<star-rating ng-model="rating"></star-rating><br>
+		<button style="color: #333;" ng-click="submitRating()">Submit</button>
+	</div>
+	<div ng-show="sent">
+		<h4>{{message}}</h4>
+	</div>
+
 	<div class="col-md-offset-3 col-md-6 footer-text">
 		<h6>Data Source:</h6>
 		<div class="col-md-12">
@@ -64,6 +75,15 @@
 	</div>
 </div>
 </body>
+	<!-- AngularJS -->
 	<script src="lib/angular.min.js" charset="utf-8"></script>
-	<script src="script.js"></script>
+
+	<!-- Firebase -->
+	<script src="https://cdn.firebase.com/js/client/2.2.2/firebase.js"></script>
+
+	<!-- AngularFire -->
+	<script src="https://cdn.firebase.com/libs/angularfire/1.0.0/angularfire.min.js"></script>
+	<script src="js/app.js"></script>
+	<script src="js/mainController.js"></script>
+	<script src="js/firebaseController.js"></script>
 </html>

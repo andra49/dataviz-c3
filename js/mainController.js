@@ -1,7 +1,5 @@
-var datavizApp = angular.module('datavizApp', []);
-
-// create the controller and inject Angular's $scope
-datavizApp.controller('mainController', function($scope, $http) {
+angular.module('datavizApp')
+.controller('mainController', ['$scope', '$http', function($scope, $http) {
 	$scope.chart = null;
 	$scope.dataset = [];
 	$scope.parameter = [];
@@ -21,7 +19,7 @@ datavizApp.controller('mainController', function($scope, $http) {
 	    $scope.chart = c3.generate({
 		    data: {
 		        x: 'x',
-				url: $scope.dataset[0].filename,
+				url: 'data/'+$scope.dataset[0].filename,
 		        axes: {
 		        	PeopleOpinion: 'y2',
 		        	FutureOpinion: 'y2'
@@ -145,7 +143,7 @@ datavizApp.controller('mainController', function($scope, $http) {
 
 	$scope.analyzeParameter = function(id) {
 		if (id < $scope.dataset.length) {
-			$http.get($scope.dataset[id].filename)
+			$http.get("data/"+$scope.dataset[id].filename)
 				.success(function(response) {
 					$scope.parameter.push({name: $scope.dataset[id].name});
 					// parse csv data
@@ -217,4 +215,4 @@ datavizApp.controller('mainController', function($scope, $http) {
 			}
 		}
 	}
-});
+}]);
